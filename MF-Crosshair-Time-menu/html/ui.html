@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>M7MD ! AL3M</title>
+        <meta name="description" content="Your description here">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    </head>
+    <body>
+    <div id="crosshair-overlay" style="display: none;">
+        <img id="active-crosshair" src="" alt="Crosshair" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    </div>
+    <!-- <div onclick="showCrosshair('Crosshair/point.png')">
+        <img id="crosshair-Defaults" height="50" width="50" src="Crosshair/point.png" alt="Crosshair Point">
+    </div>    -->
+    <div id="container">
+        <div id="background">
+            <img height="150" width="150" src="img/New_Morfen_512px.png" alt="Main Image of Morfen">
+            <div id="buttonContainer">
+                <button id="crosshair-button">CROSSHAIR</button>
+                <button id="time-button">T I M E</button>
+            </div>
+            <script>
+                document.getElementById('crosshair-button').addEventListener('click', function() {
+                    var crosshairImages = document.getElementById('crosshair-images');
+                    var sunMoonImages = document.getElementById('sun-moon-images');
+                    
+                    if (crosshairImages.style.display === 'none' || crosshairImages.style.display === '') {
+                        crosshairImages.style.display = 'flex';
+                        sunMoonImages.style.display = 'none';
+                    }
+                });
+            
+                document.getElementById('time-button').addEventListener('click', function() {
+                    var crosshairImages = document.getElementById('crosshair-images');
+                    var sunMoonImages = document.getElementById('sun-moon-images');
+                    
+                    if (sunMoonImages.style.display === 'none' || sunMoonImages.style.display === '') {
+                        sunMoonImages.style.display = 'flex';
+                        crosshairImages.style.display = 'none';
+                    }
+                });
+            
+                document.getElementById('sun-button').addEventListener('click', function () {
+                    fetch(`https://${GetParentResourceName()}/setWeather`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ weather: 'sunny' })
+                    });
+                });
+            
+                document.getElementById('moon-button').addEventListener('click', function () {
+                    fetch(`https://${GetParentResourceName()}/setWeather`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ weather: 'moonlight' })
+                    });
+                });
+
+                document.getElementById('crosshair-button').addEventListener('click', function() {
+                    var crosshairImages = document.getElementById('crosshair-images');
+                    var sunMoonImages = document.getElementById('sun-moon-images');
+                    
+                    if (crosshairImages.style.display === 'none' || crosshairImages.style.display === '') {
+                        crosshairImages.style.display = 'flex';
+                        sunMoonImages.style.display = 'none';
+                    }
+                });
+            
+                document.getElementById('time-button').addEventListener('click', function() {
+                    var crosshairImages = document.getElementById('crosshair-images');
+                    var sunMoonImages = document.getElementById('sun-moon-images');
+                    
+                    if (sunMoonImages.style.display === 'none' || sunMoonImages.style.display === '') {
+                        sunMoonImages.style.display = 'flex';
+                        crosshairImages.style.display = 'none';
+                    }
+                });
+            
+                document.getElementById('crosshair-point').addEventListener('click', function() {
+                    showCrosshair('Crosshair/point.png');
+                });
+            
+                document.getElementById('crosshair-blue').addEventListener('click', function() {
+                    showCrosshair('Crosshair/blue.png');
+                });
+            
+                document.getElementById('crosshair-red').addEventListener('click', function() {
+                    showCrosshair('Crosshair/red.png');
+                });
+            
+                document.getElementById('crosshair-special').addEventListener('click', function() {
+                    showCrosshair('Crosshair/special.png');
+                });
+            
+                document.getElementById('crosshair-point-red').addEventListener('click', function() {
+                    showCrosshair('Crosshair/point_red.png');
+                });
+            
+                function showCrosshair(imagePath) {
+                    crosshairContainer.innerHTML = `
+                        <img id="crosshair" src="${imagePath}" alt="Selected Crosshair" style="display: block; margin: 0 auto;">
+                    `;
+                }
+                
+            </script>
+            
+            
+            
+            <div id="crosshair-images">
+                <div onclick="showCrosshair('Crosshair/point.png')">
+                    <img id="crosshair-point" height="50" width="50" src="Crosshair/point.png" alt="Crosshair Point">
+                    <p>Defaults</p>
+                </div>
+                <div onclick="showCrosshair('Crosshair/blue.png')">
+                    <img id="crosshair-blue" height="50" width="50" src="Crosshair/blue.png" alt="Crosshair Blue">
+                    <p>Cyan</p>
+                </div>
+                <div onclick="showCrosshair('Crosshair/red.png')">
+                    <img id="crosshair-red" height="50" width="50" src="Crosshair/red.png" alt="Crosshair Red">
+                    <p>Red</p>
+                </div>
+                <div onclick="showCrosshair('Crosshair/special.png')">
+                    <img id="crosshair-special" height="50" width="50" src="Crosshair/special.png" alt="Crosshair Special">
+                    <p>Special</p>
+                </div>
+                <div onclick="showCrosshair('Crosshair/point_red.png')">
+                    <img id="crosshair-point-red" height="50" width="50" src="Crosshair/point_red.png" alt="Crosshair Red Point">
+                    <p>Red Point</p>
+                </div>
+                <div>
+                    <div id="Clear-image-2">Clear</div>
+                </div>
+            </div>
+            
+            
+            <div id="sun-moon-images" style="display: none;">
+                <div>
+                    <img id="moon-image" height="150" width="150" src="sun-moon/moon.png" alt="MOON">
+                    <p>Moon</p>
+                </div>
+                <div>
+                    <img id="sun-image" height="150" width="150" src="sun-moon/sun.png" alt="SUN">
+                    <p>Sun</p>
+                </div>
+                <div>
+                    <img id="Rain-image" height="150" width="150" src="sun-moon/rain.png" alt="SUN">
+                    <p>Rain</p>
+                </div>
+                <div>
+                    <img id="Halloween-image" height="150" width="150" src="sun-moon/Halloween.png" alt="SUN">
+                    <p>Halloween</p>
+                </div>
+                <div>
+                    <img id="Snow-image" height="150" width="150" src="sun-moon/Snow.png" alt="SUN">
+                    <p>Snow</p>
+                </div>
+                <div>
+                    <div id="Clear-image">Clear</div>
+                </div>
+            </div>
+            <script>
+                document.getElementById("moon-image").addEventListener("click", function() {
+                    fetch("https://MF-Crosshair-Time-Menu/client.lua/setNight", { method: "POST" });
+                });
+        
+                document.getElementById("sun-image").addEventListener("click", function() {
+                    fetch("https://MF-Crosshair-Time-Menu/client.lua/setDay", { method: "POST" });
+                });
+            </script>
+            
+            <div id="crosshair-container" style="display: none;">
+            </div>
+        </div>
+        <img id="icons" src="img/xmark.png" alt="xmark"> 
+    </div>
+    <script src="app.js" async defer></script>
+</body>
+</html>
